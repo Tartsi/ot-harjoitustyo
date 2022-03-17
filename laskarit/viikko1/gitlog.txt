@@ -1,0 +1,114 @@
+commit a8d0a091a5835a008ebf412b09fdd3d3474b3fa6
+Author: Tartsi <tarvo.lilja@hotmail.fi>
+Date:   Thu Mar 17 03:32:40 2022 +0200
+
+    poistettiin file1, uudelleennimettiin file2 -> file22
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 8f81d42d24d4e10cce52a95158ed95ae8f20ae6c
+Author: Tartsi <tarvo.lilja@hotmail.fi>
+Date:   Thu Mar 17 03:27:39 2022 +0200
+
+    lisattiin hakemisto 'tiedostoja' ja sisalle tiedostot
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 444a7460565c32336b0fdb2dd49f8192d0fcda93
+Author: Tartsi <tarvo.lilja@hotmail.fi>
+Date:   Thu Mar 17 03:18:12 2022 +0200
+
+    lisasin muutoksia eka.txt ja kolmas.txt tiedostoihin
+
+ eka.txt    | 5 ++---
+ kolmas.txt | 5 ++++-
+ 2 files changed, 6 insertions(+), 4 deletions(-)
+
+commit f51e4a1aa944e2def99d2b0b7823352c5789f7ee
+Author: Tartsi <tarvo.lilja@hotmail.fi>
+Date:   Thu Mar 17 03:10:47 2022 +0200
+
+    uudelleennimenta
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 559538c71c80f6c84265f92f9696e2285a768fd7
+Author: Tartsi <tarvo.lilja@hotmail.fi>
+Date:   Thu Mar 17 03:08:17 2022 +0200
+
+    poistettiin toinen.txt
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 4bd4c231831f6bb6abe6d8b2a8b18620498d209a
+Author: Tartsi <tarvo.lilja@hotmail.fi>
+Date:   Thu Mar 17 03:06:01 2022 +0200
+
+    lisamuutokset tiedostoon
+
+ tiedosto.txt | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+
+commit e46e6a5e755fbb4cd0691e9bc3bd179559ae594b
+Author: Tartsi <tarvo.lilja@hotmail.fi>
+Date:   Thu Mar 17 03:04:13 2022 +0200
+
+    kopioitu tekstia
+
+ tiedosto.txt | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+commit 5b14271465afe11bbe72d0d7bdf469bd6e130b92
+Author: Tartsi <tarvo.lilja@hotmail.fi>
+Date:   Thu Mar 17 01:48:27 2022 +0200
+
+    lisattiinn hakemisto stuff ja sen tiedostot
+
+ stuff/random.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 4e8ea6766a9a7fca345ea255021e0f4152d6c034
+Author: Tartsi <tarvo.lilja@hotmail.fi>
+Date:   Thu Mar 17 01:46:54 2022 +0200
+
+    toinen.txt ja kolmas.txt muutokset
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 3470b71ca5aeea73a718308ed5f363932944eef9
+Author: Tartsi <tarvo.lilja@hotmail.fi>
+Date:   Thu Mar 17 01:43:43 2022 +0200
+
+    Lisattiinn tiedostot toinen.txt ja kolmas.txt
+
+ kolmas.txt | 0
+ toinen.txt | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 1817d9cfb423f55ac331224e9554017fea8bde52
+Author: Tartsi <tarvo.lilja@hotmail.fi>
+Date:   Thu Mar 17 01:36:21 2022 +0200
+
+    muutos ja lisays
+
+ tiedosto.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit 68838f2819ca125cbec94a159782a68a189c8a47
+Author: Tartsi <tarvo.lilja@hotmail.fi>
+Date:   Wed Mar 16 20:40:51 2022 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
