@@ -1,4 +1,4 @@
-# GitHub README
+# Laskinsovellus
 
 ## Ohjelmistotekniikka-kurssi
 
