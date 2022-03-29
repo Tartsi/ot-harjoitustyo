@@ -7,10 +7,10 @@ class TestKassapaate(unittest.TestCase):
         self.kassapaate = Kassapaate()
         self.maksukortti = Maksukortti(1000)
     
-    def testaa_rahakassassa_alussa(self):
+    def test_rahakassassa_alussa(self):
         self.assertEqual(self.kassapaate.kassassa_rahaa, 100000)
     
-    def testaa_edulliset_alussa(self):
+    def test_edulliset_alussa(self):
         self.assertEqual(self.kassapaate.edulliset, 0)
     
     def test_maukkaat_alussa(self):
