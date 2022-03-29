@@ -11,3 +11,7 @@ Linkit tiedostoihin: [komentorivi](https://github.com/Tartsi/ot-harjoitustyo/blo
 *Paikallisella* koneella tehty muutos README.md:hen
 
 Uusi muutos paikalliseen repositorioon
+
+### Viikko 2
+
+Linkit määrittely, ja työaikakirjanpito dokumentaatioihin: [vaatimusmäärittely](https://github.com/Tartsi/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md), [työaikakirjanpito](https://github.com/Tartsi/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
