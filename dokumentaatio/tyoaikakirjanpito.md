@@ -8,4 +8,4 @@
 | 29.3  | 10m  | Määrittelydokumentin luominen
 | 01.4  | 2h   | Lisää toiminnallisuuden luomista harjoitustyöhön
 | 04.4  | 3h   | Lisää Tkinter opettelua, koodin lisäystä harjoitustyöhön
-| yht.  |5h10m | 
+| yht.  |10h10m| 
