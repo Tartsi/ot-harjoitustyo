@@ -5,7 +5,7 @@ description = ""
 authors = ["Tartsi <tarvo.lilja@hotmail.fi>"]
 
 [tool.poetry.dependencies]
-python = "^3.9.12"
+python = "^3.9.5"
 invoke = "^1.7.0"
 
 [tool.poetry.dev-dependencies]
