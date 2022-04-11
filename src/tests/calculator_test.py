@@ -1,7 +1,6 @@
 import unittest
 from calculator import Calculator
 
-
 class TestCalculator(unittest.TestCase):
 
     def setUp(self):
@@ -14,3 +13,7 @@ class TestCalculator(unittest.TestCase):
 
     def test_calculator_title(self):
         self.assertEqual(self.calculator.screen.title(), "Calculator")
+        
+    def test_areas_mapped(self):
+        self.assertEqual(self.calculator.display_area.winfo_exists(), 1)
+        self.assertEqual(self.calculator.button_area.winfo_exists(), 1)
