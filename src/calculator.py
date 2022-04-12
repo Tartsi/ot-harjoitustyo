@@ -17,7 +17,7 @@ class Calculator:
         # Luodaan muuttujat jotka näyttävät laskimen tämänhetkisen yhtälön ja sen vastauksen
         
         self.equation = ""
-        self.answer_to_equation = "" 
+        self.answer_to_equation = ""
         
         # Luodaan muuttujat, joihin sijoitetaan laskimen "vastausalue" ja nappialue
         
