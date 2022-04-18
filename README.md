@@ -3,6 +3,7 @@
 ## Ohjelmistotekniikka-kurssi
 
 - Sovelluksen avulla käyttäjä pystyy suorittamaan laskutoimituksia graafisella laskimella.
+- Käytetty Python versio 3.9.5
 
 ### Linkit Dokumentaatioihin:
 
