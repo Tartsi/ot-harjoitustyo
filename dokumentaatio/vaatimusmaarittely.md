@@ -10,7 +10,7 @@ Normaali käyttäjä ainoastaan, todennäköisesti ei tule tarvetta lisätä suu
 
 ## Toiminnallisuutta
 
-- Pystyy suorittamaan yksinkertaisia (+, -, * ja /) laskutoimituksia ja tarkoituksena myöhemmin myös mahdollistaa osa funktiolaskimen toiminnallisuuksista 
+- Pystyy suorittamaan yksinkertaisia (+, -, * ja /) laskutoimituksia (tehty 18.04) ja tarkoituksena myöhemmin myös mahdollistaa osa funktiolaskimen toiminnallisuuksista 
 
 - Sovellus pystyy pitämään kirjaa jossain muodossa suoritetuista laskutoimituksista ja saaduista tuloksista
 
