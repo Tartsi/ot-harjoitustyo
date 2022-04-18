@@ -10,4 +10,5 @@
 | 04.4  | 3h   | Lisää Tkinter opettelua, koodin lisäystä harjoitustyöhön
 | 11.4  | 1h   | Harjoitustyön edistämistä, tkinter opettelua
 | 12.4  | 1h   | Lisää Tkinter opettelua, pieniä muutoksia harjoitustyöhön
-| yht.  |12h10m| 
+| 18.4  | 2h   | Harjoitustyön edistämistä, itsenäistä opiskelua
+| yht.  |14h10m|
