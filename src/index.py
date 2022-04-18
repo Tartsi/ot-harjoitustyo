@@ -1,8 +1,8 @@
-from calculator import Calculator
+from ui.ui import *
 
 def main():
-    calculator = Calculator()
-    calculator.run()
+    ui = UI()
+    ui.start()
 
 if __name__ == '__main__':
     main()

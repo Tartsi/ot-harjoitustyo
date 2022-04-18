@@ -51,8 +51,8 @@ class Calculator:
     
     # Luodaan ja sijoitetaan laskimeen numeronapit. Asetetaan nille myös toiminta
     
-    def use_numeric_buttons(self):
-        return
+    def use_numeric_buttons(self, number):
+        self.answer_to_equation = str(number)
     
     def create_and_place_numeric_buttons(self):
     
@@ -69,7 +69,7 @@ class Calculator:
     
     # Luodaan ja sijoitetaan laskimeen operaattorinapit. Asetetaan nille myös toiminta
     
-    def use_operator_buttons(self):
+    def use_operator_buttons(self, operator):
         return
     
     def create_and_place_operator_buttons(self):
@@ -83,30 +83,33 @@ class Calculator:
             b.grid(row=i, column=4,sticky=NSEW)
             i += 1
     
-    # Luodaan ja sijoitetaan laskimeen loput napit. Asetetaan nille myös toiminnat
+    # Luodaan ja sijoitetaan laskimeen "muut" napit. Asetetaan nille myös toiminnat
     
-    def clear(self):
+    def clear_calculator(self):
+        
+        self.equation = ""
+        self.answer_to_equation = ""
+    
+    def evaluate_equation(self):
         return
-    
-    def evaluate(self):
-        return
-    
+        
     def create_and_place_misc_buttons(self):
         
-        clear_button = Button(self.button_area, text="C", font=("Arial", 24, "bold"), borderwidth=0, command=self.clear)
+        clear_button = Button(self.button_area, text="C", font=("Arial", 24, "bold"), borderwidth=0, command=self.clear_calculator)
         clear_button.grid(row=0, column=1,sticky=NSEW,columnspan=3)
 
-        equals_to_button = Button(self.button_area, text="=", font=("Arial", 24, "bold"), borderwidth=0, command=self.evaluate)
+        equals_to_button = Button(self.button_area, text="=", font=("Arial", 24, "bold"), borderwidth=0, command=self.evaluate_equation)
         equals_to_button.grid(row=4,column=3,columnspan=2,sticky=NSEW)
+        
+    # Luodaan funktiot päivittämään yhtälöä ja vastausta
+    
+    def update_equation_label(self):
+        return
+    
+    def update_answer_label(self):
+        return
            
     # Funktio laskimen käynnistykselle
 
     def run(self):
         self.screen.mainloop()
-
-def main():
-    calculator = Calculator()
-    calculator.run()
-
-if __name__ == '__main__':
-    main()
