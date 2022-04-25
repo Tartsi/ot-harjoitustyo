@@ -13,3 +13,8 @@
 
 - Lisää muutoksia laskin-luokkaan, luotiin painettavat näppäimet ja annettiin niille toiminnat. Sovelluksella pystyy nyt suorittamaan jo yksinkertaisia laskutoimituksia
 - Testien tarkoitus seurata pian perässä
+
+## Viikko 5
+
+- Lisää muutoksia laskin-luokkaan, siirrettiin laskimen koodi eri hakemistoon erilleen. Sovelluksella pystyy suorittamaan jo neliöjuuri ja neliöinti laskutoimituksia.
+- Lisättiin testejä
