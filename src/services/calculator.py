@@ -113,14 +113,14 @@ class Calculator:
 
     # Funktiot luovat ja sijoittavat laskimeen "muut" napit ja antavat niille toiminnot
 
-    def squaring_equation(self):
+    def squaring_function(self):
         self.equation = self.answer_to_equation+"\u00b2"
         self.update_equation_label()
         self.answer_to_equation = str(eval(f"{self.answer_to_equation}**2"))
         self.update_answer_label()
         self.equation = ""
 
-    def square_root_button_equation(self):
+    def square_root_button_function(self):
         self.equation = "\u221a"+self.answer_to_equation
         self.update_equation_label()
         self.answer_to_equation = str(eval(f"{self.answer_to_equation}**0.5"))
@@ -154,11 +154,11 @@ class Calculator:
         equals_to_button.grid(row=4, column=3, columnspan=2, sticky=NSEW)
 
         square_button = Button(
-            self.button_area, text="x\u00b2", font=self.operator_button_font, borderwidth=0, command=self.squaring_equation)
+            self.button_area, text="x\u00b2", font=self.operator_button_font, borderwidth=0, command=self.squaring_function)
         square_button.grid(row=0, column=2, sticky=NSEW)
 
         square_root_button = Button(self.button_area, text="\u221ax", font=self.operator_button_font,
-                                    borderwidth=0, command=self.square_root_button_equation)
+                                    borderwidth=0, command=self.square_root_button_function)
         square_root_button.grid(row=0, column=3, sticky=NSEW)
 
     # Funktiot päivittävät (väliaikaista) yhtälöä ja vastausta
