@@ -1,5 +1,5 @@
 import unittest
-from ui.calculator import *
+from services.calculator import *
 
 
 class TestCalculator(unittest.TestCase):
@@ -24,16 +24,37 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(self.calculator.answer_label.winfo_exists(), 1)
 
     def test_labels_update_correctly_numbers(self):
+        self.calculator.use_numeric_buttons(".")
+        self.calculator.use_numeric_buttons(1)
+        self.calculator.use_numeric_buttons(2)
+        self.calculator.use_numeric_buttons(3)
+        self.calculator.use_numeric_buttons(4)
         self.calculator.use_numeric_buttons(5)
-        self.assertEqual(self.calculator.answer_to_equation, "5")
+        self.calculator.use_numeric_buttons(6)
+        self.calculator.use_numeric_buttons(7)
+        self.calculator.use_numeric_buttons(8)
+        self.calculator.use_numeric_buttons(9)
+        self.assertEqual(self.calculator.answer_to_equation, ".123456789")
 
     def test_labels_update_correctly_operators(self):
-        self.calculator.use_numeric_buttons(5)
+        self.calculator.use_numeric_buttons(1)
         self.calculator.use_operator_buttons("+")
-        self.assertEqual(self.calculator.equation, "5+")
+        self.assertEqual(self.calculator.equation, "1+")
+        self.calculator.clear_calculator()
+        self.calculator.use_numeric_buttons(2)
+        self.calculator.use_operator_buttons("-")
+        self.assertEqual(self.calculator.equation, "2-")
+        self.calculator.clear_calculator()
+        self.calculator.use_numeric_buttons(3)
+        self.calculator.use_operator_buttons("*")
+        self.assertEqual(self.calculator.equation, "3*")
+        self.calculator.clear_calculator()
+        self.calculator.use_numeric_buttons(4)
+        self.calculator.use_operator_buttons("/")
+        self.assertEqual(self.calculator.equation, "4/")
 
     def test_calculator_clearing(self):
-        self.calculator.use_numeric_buttons(6)
+        self.calculator.use_numeric_buttons(5)
         self.calculator.clear_calculator()
         self.assertEqual(self.calculator.answer_to_equation, "")
 

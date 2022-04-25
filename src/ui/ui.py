@@ -1,4 +1,4 @@
-from ui.calculator import Calculator
+from services.calculator import Calculator
 
 # Moduulista hallinnoidaan näkymiä - laskinta ja myöhemmin tarkoitus mahdollistaa myös historia
 
