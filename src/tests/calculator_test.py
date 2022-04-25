@@ -64,3 +64,17 @@ class TestCalculator(unittest.TestCase):
         self.calculator.use_numeric_buttons(2)
         self.calculator.evaluate_equation()
         self.assertEqual(self.calculator.answer_to_equation, "3")
+
+    def test_negative_answer_to_equation(self):
+        self.calculator.use_numeric_buttons(1)
+        self.calculator.use_operator_buttons("-")
+        self.calculator.use_numeric_buttons(2)
+        self.calculator.evaluate_equation()
+        self.assertEqual(self.calculator.answer_to_equation, "-1")
+
+    def test_first_number_negative(self):
+        self.calculator.use_numeric_buttons(-1)
+        self.calculator.use_operator_buttons("+")
+        self.calculator.use_numeric_buttons(2)
+        self.calculator.evaluate_equation()
+        self.assertEqual(self.calculator.answer_to_equation, "1")

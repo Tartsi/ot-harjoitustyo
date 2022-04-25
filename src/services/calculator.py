@@ -5,9 +5,11 @@ from tkinter import *
 
 class Calculator:
 
-    # Luodaan uusi luokkamuuttuja laskimen muotoiluun liittyen
+    # Luodaan luokkamuuttujat laskimen muotoiluun liittyen
 
     color_light_gray = "#D3D3D3"
+    numeric_button_font = ("Helvetica", 24, "bold")
+    operator_button_font = ("Arial", 20)
 
     # Alustetaan laskimelle pääikkuna ja määritetään sen koko vakioksi, annetaan ikkunalle myös nimi
 
@@ -84,7 +86,7 @@ class Calculator:
         }
 
         for button, area in buttons_dictionary.items():
-            b = Button(self.button_area, text=str(button), font=("Helvetica", 24, "bold"),
+            b = Button(self.button_area, text=str(button), font=self.numeric_button_font,
                        borderwidth=0, command=lambda temp_button=button: self.use_numeric_buttons(temp_button))
             b.grid(row=area[0], column=area[1], sticky=NSEW)
 
@@ -104,12 +106,26 @@ class Calculator:
         i = 0
 
         for operator in operators:
-            b = Button(self.button_area, text=operator, font=("Arial", 20), borderwidth=0,
+            b = Button(self.button_area, text=operator, font=self.operator_button_font, borderwidth=0,
                        command=lambda temp_button=operator: self.use_operator_buttons(temp_button))
             b.grid(row=i, column=4, sticky=NSEW)
             i += 1
 
     # Funktiot luovat ja sijoittavat laskimeen "muut" napit ja antavat niille toiminnot
+
+    def squaring_equation(self):
+        self.equation = self.answer_to_equation+"\u00b2"
+        self.update_equation_label()
+        self.answer_to_equation = str(eval(f"{self.answer_to_equation}**2"))
+        self.update_answer_label()
+        self.equation = ""
+
+    def square_root_button_equation(self):
+        self.equation = "\u221a"+self.answer_to_equation
+        self.update_equation_label()
+        self.answer_to_equation = str(eval(f"{self.answer_to_equation}**0.5"))
+        self.update_answer_label()
+        self.equation = ""
 
     def clear_calculator(self):
         self.equation = ""
@@ -131,11 +147,19 @@ class Calculator:
 
         clear_button = Button(self.button_area, text="C", font=(
             "Arial", 24, "bold"), borderwidth=0, command=self.clear_calculator)
-        clear_button.grid(row=0, column=1, sticky=NSEW, columnspan=3)
+        clear_button.grid(row=0, column=1, sticky=NSEW)
 
         equals_to_button = Button(self.button_area, text="=", font=(
             "Arial", 24, "bold"), borderwidth=0, command=self.evaluate_equation)
         equals_to_button.grid(row=4, column=3, columnspan=2, sticky=NSEW)
+
+        square_button = Button(
+            self.button_area, text="x\u00b2", font=self.operator_button_font, borderwidth=0, command=self.squaring_equation)
+        square_button.grid(row=0, column=2, sticky=NSEW)
+
+        square_root_button = Button(self.button_area, text="\u221ax", font=self.operator_button_font,
+                                    borderwidth=0, command=self.square_root_button_equation)
+        square_root_button.grid(row=0, column=3, sticky=NSEW)
 
     # Funktiot päivittävät (väliaikaista) yhtälöä ja vastausta
 
