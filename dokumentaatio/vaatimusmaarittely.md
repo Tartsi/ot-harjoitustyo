@@ -10,9 +10,9 @@ Normaali käyttäjä ainoastaan, todennäköisesti ei tule tarvetta lisätä suu
 
 ## Toiminnallisuutta
 
-- Pystyy suorittamaan yksinkertaisia (+, -, * ja /) laskutoimituksia (tehty 18.04) ja tarkoituksena myöhemmin myös mahdollistaa osa funktiolaskimen toiminnallisuuksista 
+- Pystyy suorittamaan yksinkertaisia (+, -, * ja /) laskutoimituksia (tehty 18.04) ja tarkoituksena myöhemmin myös mahdollistaa osa funktiolaskimen toiminnallisuuksista (ainakin osittain suoritettu 25.04 - neliöjuuri ja neliöinti laskut)
 
-- Sovellus pystyy pitämään kirjaa jossain muodossa suoritetuista laskutoimituksista ja saaduista tuloksista
+- Sovellus pystyy pitämään kirjaa jossain muodossa suoritetuista laskutoimituksista ja saaduista tuloksista (tarkoitus toteuttaa seuraavaksi)
 
 ## Jatkokehitys
 
