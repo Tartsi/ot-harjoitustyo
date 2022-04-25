@@ -177,6 +177,6 @@ class Calculator:
 # Väliaikaiskoodia kehityksen ajaksi
 
 
-if __name__ == "__main__":
-    calculator = Calculator()
-    calculator.run()
+# if __name__ == "__main__":
+#     calculator = Calculator()
+#     calculator.run()
