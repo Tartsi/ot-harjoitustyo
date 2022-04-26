@@ -1,6 +1,6 @@
 from tkinter import *
 
-# Laskinnäkymä
+# Luokka luo laskimen
 
 
 class Calculator:
@@ -11,11 +11,10 @@ class Calculator:
     numeric_button_font = ("Helvetica", 24, "bold")
     operator_button_font = ("Arial", 20)
 
-    # Alustetaan laskimelle pääikkuna ja määritetään sen koko vakioksi, annetaan ikkunalle myös nimi
+    # Alustetaan laskin
 
     def __init__(self):
         self.screen = Tk()
-        # self.screen.resizable(0, 0)
         self.screen.geometry("400x600")
         self.screen.title("Calculator")
 
@@ -114,14 +113,19 @@ class Calculator:
     # Funktiot luovat ja sijoittavat laskimeen "muut" napit ja antavat niille toiminnot
 
     def squaring_function(self):
-        self.equation = self.answer_to_equation+"\u00b2"
+        self.equation = self.answer_to_equation+"\u00b2"+"="
         self.update_equation_label()
-        self.answer_to_equation = str(eval(f"{self.answer_to_equation}**2"))
+        try:
+            self.answer_to_equation = str(
+                eval(f"{self.answer_to_equation}**2"))
+        except OverflowError as e:
+            self.answer_to_equation = "Overflow"
+
         self.update_answer_label()
         self.equation = ""
 
     def square_root_button_function(self):
-        self.equation = "\u221a"+self.answer_to_equation
+        self.equation = "\u221a"+self.answer_to_equation+"="
         self.update_equation_label()
         self.answer_to_equation = str(eval(f"{self.answer_to_equation}**0.5"))
         self.update_answer_label()
@@ -137,11 +141,17 @@ class Calculator:
         self.equation += self.answer_to_equation
         self.update_equation_label()
 
-        self.answer_to_equation = str(eval(self.equation))
-        self.update_answer_label()
+        try:
+            self.answer_to_equation = str(eval(self.equation))
+        except ZeroDivisionError as e:
+            self.answer_to_equation = "/0 Error"
+        except Exception as e:
+            self.answer_to_equation = "Error"
 
-        self.equation = ""
+        self.update_answer_label()
+        self.equation += "="
         self.update_equation_label()
+        self.equation = ""
 
     def create_and_place_misc_buttons(self):
 
@@ -167,7 +177,7 @@ class Calculator:
         self.equation_label.config(text=self.equation)
 
     def update_answer_label(self):
-        self.answer_label.config(text=self.answer_to_equation)
+        self.answer_label.config(text=self.answer_to_equation[:9])
 
     # Funktio laskimen käynnistykselle
 
@@ -177,6 +187,6 @@ class Calculator:
 # Väliaikaiskoodia kehityksen ajaksi
 
 
-# if __name__ == "__main__":
-#     calculator = Calculator()
-#     calculator.run()
+if __name__ == "__main__":
+    calculator = Calculator()
+    calculator.run()
