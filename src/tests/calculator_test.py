@@ -78,3 +78,19 @@ class TestCalculator(unittest.TestCase):
         self.calculator.use_numeric_buttons(2)
         self.calculator.evaluate_equation()
         self.assertEqual(self.calculator.answer_to_equation, "1")
+
+    def test_zero_div_error(self):
+        self.calculator.use_numeric_buttons(1)
+        self.calculator.use_operator_buttons("/")
+        self.calculator.use_numeric_buttons(0)
+        self.calculator.evaluate_equation()
+        self.assertEqual(self.calculator.answer_to_equation, "/0 Error")
+
+    def test_incorrect_operator(self):
+        self.calculator.use_numeric_buttons(3)
+        self.calculator.use_operator_buttons("*")
+        self.calculator.use_operator_buttons("*")
+        self.calculator.use_operator_buttons("*")
+        self.calculator.use_numeric_buttons(2)
+        self.calculator.evaluate_equation()
+        self.assertEqual(self.calculator.answer_to_equation, "Error")

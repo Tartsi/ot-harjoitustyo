@@ -177,16 +177,12 @@ class Calculator:
         self.equation_label.config(text=self.equation)
 
     def update_answer_label(self):
-        self.answer_label.config(text=self.answer_to_equation[:9])
+        if len(self.answer_to_equation) > 9:
+            self.answer_label.config(text=self.answer_to_equation[:11]+"...")
+        else:
+            self.answer_label.config(text=self.answer_to_equation)
 
     # Funktio laskimen käynnistykselle
 
     def run(self):
         self.screen.mainloop()
-
-# Väliaikaiskoodia kehityksen ajaksi
-
-
-if __name__ == "__main__":
-    calculator = Calculator()
-    calculator.run()
