@@ -19,14 +19,20 @@
 poetry install
 ```
 
-2. Suorita vaadittavat alustustoimenpiteet komennolla:
-
-```bash
-poetry run invoke build
-```
-
-3. Käynnistä sovellus komennolla:
+2. Käynnistys:
 
 ```bash
 poetry run invoke start
+```
+
+3. Testit:
+
+```bash
+poetry run invoke test
+```
+
+4. Kattavuusraportti:
+
+```bash
+poetry run invoke coverage-report
 ```
