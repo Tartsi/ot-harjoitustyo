@@ -1,5 +1,7 @@
 from tkinter import *
 
+from repositories.history_repository import HistoryRepository
+
 
 class CalculatorView:
 
@@ -42,6 +44,7 @@ class CalculatorView:
         self.create_and_place_operator_buttons()
         self.create_and_place_misc_buttons()
         self.fill_button_area()
+        self.history_repo = HistoryRepository()
 
     def create_areas(self):
         """Funktio luo laskimen "vastausalueen" ja nappialueen
@@ -192,6 +195,12 @@ class CalculatorView:
         self.update_equation_label()
         self.equation = ""
 
+    # Sovelluslogiikkaa, siirretään myöhemmin toiseen luokkaan
+    def show_history(self):
+        """Avaa laskuhistoria näkymän
+        """
+        self.history_repo.read_calculation_historyfile()
+
     def create_and_place_misc_buttons(self):
         """Luo ja sijoittaa laskimen "erityisnapit" laskimen nappialueelle
            neliöintinappi, neliöjuurinappi, tyhjennysnappi ja yhtäsuuruusnappi
@@ -202,7 +211,11 @@ class CalculatorView:
 
         equals_to_button = Button(self.button_area, text="=", font=(
             "Arial", 24, "bold"), borderwidth=0, command=self.evaluate_equation)
-        equals_to_button.grid(row=4, column=3, columnspan=2, sticky=NSEW)
+        equals_to_button.grid(row=4, column=4, sticky=NSEW)
+
+        history_button = Button(self.button_area, text="H", font=(
+            "Arial", 24, "bold"), borderwidth=0, command=self.show_history)
+        history_button.grid(row=4, column=3, sticky=NSEW)
 
         square_button = Button(
             self.button_area, text="x\u00b2", font=self.operator_button_font, borderwidth=0, command=self.squaring_function)

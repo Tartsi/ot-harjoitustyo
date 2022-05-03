@@ -15,8 +15,8 @@ class HistoryRepository:
         """Liitetään laskutoimitus historiaan
         """
         try:
-            with open(self.historyfile) as file:
-                file.write(f"{equation}={answer}\n")
+            with open(self.historyfile, "a") as file:
+                file.write(f"{equation}{answer}\n")
         except FileNotFoundError:
             print('File not found!')
         except PermissionError:
