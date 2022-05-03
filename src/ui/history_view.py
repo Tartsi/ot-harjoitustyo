@@ -71,8 +71,3 @@ class HistoryView:
         """Käynnistää laskinnäkymän
         """
         self.root.mainloop()
-
-
-# if __name__ == "__main__":
-#     h = HistoryView()
-#     h.run()

@@ -1,5 +1,4 @@
 from tkinter import *
-
 from repositories.history_repository import HistoryRepository
 
 
@@ -147,6 +146,8 @@ class CalculatorView:
                 self.answer_to_equation = "Overflow"
 
             self.update_answer_label()
+            self.history_repo.add_calculation_to_history(
+                self.equation, self.answer_to_equation)
             self.equation = ""
         else:
             self.equation = "Enter number first!"
@@ -162,6 +163,8 @@ class CalculatorView:
             self.answer_to_equation = str(
                 eval(f"{self.answer_to_equation}**0.5"))
             self.update_answer_label()
+            self.history_repo.add_calculation_to_history(
+                self.equation.replace("\u221a", f"sqrt("), self.answer_to_equation)
             self.equation = ""
         else:
             self.equation = "Enter number first!"
@@ -193,6 +196,8 @@ class CalculatorView:
         self.update_answer_label()
         self.equation += "="
         self.update_equation_label()
+        self.history_repo.add_calculation_to_history(
+            self.equation, self.answer_to_equation)
         self.equation = ""
 
     # Sovelluslogiikkaa, siirretään myöhemmin toiseen luokkaan
@@ -244,9 +249,3 @@ class CalculatorView:
         """Käynnistää laskimen
         """
         self.screen.mainloop()
-
-
-# Väliaikaiskoodia kehityksen ajaksi
-if __name__ == "__main__":
-    b = CalculatorView()
-    b.run()
