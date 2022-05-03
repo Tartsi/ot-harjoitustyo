@@ -14,4 +14,6 @@
 | 24.4  | 1h   | Harjoitustyön edistämistä
 | 25.4  | 1h   | Harjoitustyön edistämistä
 | 26.4  | 2h   | Harjoitustyön edistämistä, viimeistellään release
-| yht.  |18h10m|
+| 02.5  | 2h   | Harjoitustyön edistämistä
+| 03.5  | 3h   | Harjoitustyön edistämistä, viimeistellään release
+| yht.  |23h10m|
