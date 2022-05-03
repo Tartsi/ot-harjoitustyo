@@ -1,11 +1,9 @@
 from ui.ui import *
 
-# Käyttäjä aloittaa ohjelman
-
 
 def main():
     ui = UI()
-    ui.start()
+    ui.show_calculator()
 
 
 if __name__ == '__main__':
