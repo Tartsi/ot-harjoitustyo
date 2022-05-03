@@ -12,10 +12,10 @@ Normaali käyttäjä ainoastaan, todennäköisesti ei tule tarvetta lisätä suu
 
 - Pystyy suorittamaan yksinkertaisia (+, -, * ja /) laskutoimituksia (tehty 18.04) ja tarkoituksena myöhemmin myös mahdollistaa osa funktiolaskimen toiminnallisuuksista (ainakin osittain suoritettu 25.04 - neliöjuuri ja neliöinti laskut)
 
-- Sovellus pystyy pitämään kirjaa jossain muodossa suoritetuista laskutoimituksista ja saaduista tuloksista (tarkoitus toteuttaa seuraavaksi)
+- Sovellus pystyy pitämään kirjaa jossain muodossa suoritetuista laskutoimituksista ja saaduista tuloksista (Toteutettu alustavasti 03.05)
 
 ## Jatkokehitys
 
 - Tarkoituksena mahdollistaa monimutkaisemmatkin laskutoimitukset ja laajentaa graafista käyttöliittymää
 
-- Laskuhistorian ylläpito
+- Laskuhistorian ylläpidon visuaalinen parantaminen
