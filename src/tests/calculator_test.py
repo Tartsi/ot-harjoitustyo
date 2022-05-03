@@ -1,11 +1,11 @@
 import unittest
-from services.calculator import *
+from ui.calculator_view import CalculatorView
 
 
 class TestCalculator(unittest.TestCase):
 
     def setUp(self):
-        self.calculator = Calculator()
+        self.calculator = CalculatorView()
         self.calculator.screen.update_idletasks()
 
     def test_calculator_size(self):
