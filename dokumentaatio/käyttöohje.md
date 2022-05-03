@@ -4,10 +4,24 @@
 
 Asenna vaadittavat riippuvuudet:
 
-- poetry install
+```bash
+poetry install
+```
 
-Käynnistä ohjelma:
+2. Käynnistys:
 
-- poetry run invoke start
+```bash
+poetry run invoke start
+```
 
-Aukeava näkymä on laskinsovellus, jonka avulla pystyt suorittamaan laskuja
+3. Testit:
+
+```bash
+poetry run invoke test
+```
+
+4. Kattavuusraportti:
+
+```bash
+poetry run invoke coverage-report
+```

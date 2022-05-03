@@ -13,4 +13,5 @@
 | 18.4  | 2h   | Harjoitustyön edistämistä, itsenäistä opiskelua
 | 24.4  | 1h   | Harjoitustyön edistämistä
 | 25.4  | 1h   | Harjoitustyön edistämistä
-| yht.  |16h10m|
+| 26.4  | 2h   | Harjoitustyön edistämistä, viimeistellään release
+| yht.  |18h10m|
