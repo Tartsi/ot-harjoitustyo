@@ -4,6 +4,8 @@ Viikko 6 - tallenushetkellä (03.05.2022) luokkakaavio seuraavanlainen:
 
 ![Luokkakaavio - Laskinsovellus](https://user-images.githubusercontent.com/62020899/166562026-baaac20a-5719-44d6-b2cb-c59e93e5b0dd.JPG)
 
+HUOM! Kaavion ja selvityksen tarkoituksena kuvastaa lopullista sovelluksen toimintaa!
+
 UI-hakemistossa sijaitsevan calculator_view-tiedoston tarkoituksena on luoda laskinnäkymä. Tämä calculator_view-tiedosto sitten kutsuu metodeita services-hakemistosta ja calculator-tiedostosta. Nämä metodit mahdollistavat laskimen toiminnan ja vastaavat laskimen sovelluslogiikasta. calculator-luokka kutsuu edelleen repositorio-hakemiston history_repository-tiedostoa ja sen metodeita mahdollistaen laskimen historianäkymän toiminnan.
 
 ## Viikko 5 - tallennushetkellä (26.04.2022) sekvenssikaavio seuraavanlainen:
