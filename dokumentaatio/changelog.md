@@ -18,3 +18,8 @@
 
 - Lisää muutoksia laskin-luokkaan, siirrettiin laskimen koodi eri hakemistoon erilleen. Sovelluksella pystyy suorittamaan jo neliöjuuri ja neliöinti laskutoimituksia.
 - Lisättiin testejä
+
+## Viikko 6
+
+- Lisää toiminnallisuutti laskimeen, historian ylläpidon lisääminen ja tarkastelu nyt mahdollista
+- Testit lisätään myöhemmin
