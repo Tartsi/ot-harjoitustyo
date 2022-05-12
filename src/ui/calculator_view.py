@@ -1,10 +1,11 @@
 from tkinter import *
 from repositories.history_repository import HistoryRepository
+from services.calculator import Calculator
 
 
 class CalculatorView:
 
-    """Laskinnäkymästä vastaava luokka"""  # (väliaikaisesti koodissa esiintyy sovelluslogiikan osia, kommentoitu erikseen)
+    """Laskinnäkymästä vastaava luokka"""
 
     color_light_gray = "#D3D3D3"
     numeric_button_font = ("Helvetica", 24, "bold")
@@ -19,7 +20,6 @@ class CalculatorView:
 
         Konstruktori kutsuu metodeita, jotka muodostavat laskinnäkymän
         """
-
         self.screen = Tk()
         self.screen.geometry("400x600")
         self.screen.title("Calculator")
@@ -43,6 +43,7 @@ class CalculatorView:
         self.create_and_place_operator_buttons()
         self.create_and_place_misc_buttons()
         self.fill_button_area()
+        self.calculator = Calculator()
         self.history_repo = HistoryRepository()
 
     def create_areas(self):
@@ -81,18 +82,20 @@ class CalculatorView:
             self.button_area.rowconfigure(i, weight=1)
             self.button_area.columnconfigure(i, weight=1)
 
-    # Sovelluslogiikkaa, siirretään toiseen luokkaan myöhemmin
-    def use_numeric_buttons(self, number):
-        """Toiminto käyttämään laskimen numeronappeja
+    def press_numeric_button(self, number):
+        """Funktio saa numeron parametriksi ja hyödyntäen laskimen
+        palvelua lisää sen näkymään, jonka jälkeen päivittää näkymää
 
         Args:
-            number (int): Argumenttina saa numeronapin vastaavan numeron 
+            number (int): Käyttöliittymästä valittu numero joka lisätään näkymään
         """
-        self.answer_to_equation += str(number)
+        self.answer_to_equation += str(
+            self.calculator.use_numeric_buttons(number))
         self.update_answer_label()
 
     def create_and_place_numeric_buttons(self):
-        """Funktio luo ja sijoittaa laskimen numeronapit nappialueelle
+        """Funktio luo ja sijoittaa laskimen numeronapit nappialueelle antaen niille
+        myös toiminnallisuuden
         """
         buttons_dictionary = {
             7: (1, 1), 8: (1, 2), 9: (1, 3),
@@ -103,7 +106,7 @@ class CalculatorView:
 
         for button, area in buttons_dictionary.items():
             b = Button(self.button_area, text=str(button), font=self.numeric_button_font,
-                       borderwidth=0, command=lambda temp_button=button: self.use_numeric_buttons(temp_button))
+                       borderwidth=0, command=lambda temp_button=button: self.press_numeric_button(temp_button))
             b.grid(row=area[0], column=area[1], sticky=NSEW)
 
     # Sovelluslogiikkaa, siirretään toiseen luokkaan myöhemmin

@@ -1,17 +1,16 @@
-# importit tähän
 
 # Tämä luokka vielä vaiheessa, tarkoitus vastata laskimen sovelluslogiikasta
 
-# class Calculator:
+# from ui.calculator_view import CalculatorView
 
-#   """Luokka vastaa laskimen sovelluslogiikasta"""
 
-#     def __init__(self):
-#         self.calculatorview = CalculatorView()
+class Calculator:
 
-#     def use_numeric_buttons(self, number):  # Lasku
-#         self.calculatorview.answer_to_equation += str(number)
-#         self.calculatorview.update_answer_label()
+    def __init__(self):
+        self.x = 0
+
+    def use_numeric_buttons(self, number):  # Lasku
+        return number
 
 #     def use_operator_buttons(self, operator):  # Lasku
 #         self.answer_to_equation += operator
