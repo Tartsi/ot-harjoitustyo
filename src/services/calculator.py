@@ -9,15 +9,27 @@ class Calculator:
     def __init__(self):
         self.x = 0
 
-    def use_numeric_buttons(self, number):  # Lasku
+    def use_numeric_buttons(self, number):
+        """Yksinkertainen funktio joka palauttaa saadun numeron
+
+        Args:
+            number (int): Laskinnäkymästä saatu numero
+
+        Returns:
+            int: Numero joka palautetaan ilman muutoksia
+        """
         return number
 
-#     def use_operator_buttons(self, operator):  # Lasku
-#         self.answer_to_equation += operator
-#         self.equation += self.answer_to_equation
-#         self.answer_to_equation = ""
-#         self.update_equation_label()
-#         self.update_answer_label()
+    def use_operator_buttons(self, operator):
+        """Yksinkertainen funktio joka palauttaa saadun operaattori
+
+        Args:
+            operator (str): Laskinnäkymästä saatu operaattori
+
+        Returns:
+            str: Operaattori joka palautetaan muuttumattomana
+        """
+        return operator
 
 #     def squaring_function(self):  # Lasku
 #         self.equation = self.answer_to_equation+"\u00b2"+"="

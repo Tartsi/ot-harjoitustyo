@@ -43,6 +43,9 @@ class CalculatorView:
         self.create_and_place_operator_buttons()
         self.create_and_place_misc_buttons()
         self.fill_button_area()
+
+        # Alustetaan sovelluslogiikasta ja laskuhistoriasta vastaavat moduulit
+
         self.calculator = Calculator()
         self.history_repo = HistoryRepository()
 
@@ -109,14 +112,15 @@ class CalculatorView:
                        borderwidth=0, command=lambda temp_button=button: self.press_numeric_button(temp_button))
             b.grid(row=area[0], column=area[1], sticky=NSEW)
 
-    # Sovelluslogiikkaa, siirretään toiseen luokkaan myöhemmin
-    def use_operator_buttons(self, operator):
-        """Toiminto käyttämään laskimen operaattorinappeja
+    def press_operator_button(self, operator):
+        """Toiminto käyttämään laskimen operaattorinappeja, suurin osa funktiosta on
+        näkymien päivittämistä varten
 
         Args:
-            operator (str): Argumenttina saa operaattorinappia vastaavan operaattorin laskutoimitukselle
+            operator (str): Operaattori joka välitetään sovelluslogiikasta vastaavaan moduuliin
         """
-        self.answer_to_equation += operator
+        self.answer_to_equation += self.calculator.use_operator_buttons(
+            operator)
         self.equation += self.answer_to_equation
         self.answer_to_equation = ""
         self.update_equation_label()
@@ -131,7 +135,7 @@ class CalculatorView:
 
         for operator in operators:
             b = Button(self.button_area, text=operator, font=self.operator_button_font, borderwidth=0,
-                       command=lambda temp_button=operator: self.use_operator_buttons(temp_button))
+                       command=lambda temp_button=operator: self.press_operator_button(temp_button))
             b.grid(row=i, column=4, sticky=NSEW)
             i += 1
 
