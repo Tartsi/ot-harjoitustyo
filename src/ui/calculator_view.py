@@ -92,8 +92,7 @@ class CalculatorView:
         Args:
             number (int): Käyttöliittymästä valittu numero joka lisätään näkymään
         """
-        self.answer_to_equation += str(
-            self.calculator.use_numeric_buttons(number))
+        self.answer_to_equation += self.calculator.use_numeric_buttons(number)
         self.update_answer_label()
 
     def create_and_place_numeric_buttons(self):
@@ -114,7 +113,7 @@ class CalculatorView:
 
     def press_operator_button(self, operator):
         """Toiminto käyttämään laskimen operaattorinappeja, suurin osa funktiosta on
-        näkymien päivittämistä varten
+        laskinnäkymän kenttien päivittämistä varten
 
         Args:
             operator (str): Operaattori joka välitetään sovelluslogiikasta vastaavaan moduuliin
@@ -139,43 +138,39 @@ class CalculatorView:
             b.grid(row=i, column=4, sticky=NSEW)
             i += 1
 
-    # Sovelluslogiikkaa, siirretään myöhemmin toiseen luokkaan
-    def squaring_function(self):
-        """Neliöinti toiminto laskimelle
+    def press_squaring_button(self):
+        """Neliöinti toiminto laskimelle, näkymien päivitys tapahtuu tässä,
+        itse laskemisesta vastaa sovelluslogiikan calculator
         """
-        if len(self.answer_to_equation) != 0:
+        squared = self.calculator.squaring_function(self.answer_to_equation)
+        if isinstance(squared, float):
             self.equation = self.answer_to_equation+"\u00b2"+"="
             self.update_equation_label()
-            try:
-                self.answer_to_equation = str(
-                    eval(f"{self.answer_to_equation}**2"))
-            except OverflowError as e:
-                self.answer_to_equation = "Overflow"
-
+            self.answer_to_equation = str(squared)
             self.update_answer_label()
             self.history_repo.add_calculation_to_history(
                 self.equation, self.answer_to_equation)
             self.equation = ""
         else:
-            self.equation = "Enter number first!"
-            self.update_equation_label()
+            self.equation = squared
+            self.update_equation_label()  # TÄHÄN JÄIT!
 
     # Sovelluslogiikkaa, siirretään myöhemmin toiseen luokkaan
     def square_root_button_function(self):
         """Neliöjuuri toiminto laskimelle
         """
-        if len(self.answer_to_equation) != 0:
-            self.equation = "\u221a"+self.answer_to_equation+"="
-            self.update_equation_label()
-            self.answer_to_equation = str(
-                eval(f"{self.answer_to_equation}**0.5"))
-            self.update_answer_label()
-            self.history_repo.add_calculation_to_history(
-                self.equation.replace("\u221a", f"sqrt("), self.answer_to_equation)
-            self.equation = ""
-        else:
-            self.equation = "Enter number first!"
-            self.update_equation_label()
+        # if len(self.answer_to_equation) != 0:
+        #     self.equation = "\u221a"+self.answer_to_equation+"="
+        #     self.update_equation_label()
+        #     self.answer_to_equation = str(
+        #         eval(f"{self.answer_to_equation}**0.5"))
+        #     self.update_answer_label()
+        #     self.history_repo.add_calculation_to_history(
+        #         self.equation.replace("\u221a", f"sqrt("), self.answer_to_equation)
+        #     self.equation = ""
+        # else:
+        #     self.equation = "Enter number first!"
+        #     self.update_equation_label()
 
     # Sovelluslogiikkaa, siirretään myöhemmin toiseen luokkaan
     def clear_calculator(self):
@@ -230,20 +225,18 @@ class CalculatorView:
         history_button.grid(row=4, column=3, sticky=NSEW)
 
         square_button = Button(
-            self.button_area, text="x\u00b2", font=self.operator_button_font, borderwidth=0, command=self.squaring_function)
+            self.button_area, text="x\u00b2", font=self.operator_button_font, borderwidth=0, command=self.press_squaring_button)
         square_button.grid(row=0, column=2, sticky=NSEW)
 
         square_root_button = Button(self.button_area, text="\u221ax", font=self.operator_button_font,
                                     borderwidth=0, command=self.square_root_button_function)
         square_root_button.grid(row=0, column=3, sticky=NSEW)
 
-    # Sovelluslogiikkaa, siirretään myöhemmin toiseen luokkaan
     def update_equation_label(self):
         """Päivittää laskimen yhtälökenttää
         """
         self.equation_label.config(text=self.equation)
 
-    # Sovelluslogiikkaa, siirretään myöhemmin toiseen luokkaan
     def update_answer_label(self):
         """Päivittää laskimen vastauskenttää
         """
