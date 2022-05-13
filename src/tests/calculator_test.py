@@ -42,3 +42,10 @@ class TestCalculator(unittest.TestCase):
 
     def test_clear(self):
         self.assertEqual(self.calculator.clear(), "")
+
+    def test_evaluate(self):
+        self.assertEqual(self.calculator.evaluate("1+", "2"), "3")
+        self.assertEqual(self.calculator.evaluate(
+            "9/", "0"), "/0 Error, please reset")
+        self.assertEqual(self.calculator.evaluate(
+            "/93++-", "3"), "Error, please reset")

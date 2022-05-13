@@ -1,4 +1,5 @@
 import math
+from repositories.history_repository import HistoryRepository
 
 
 class Calculator:
@@ -6,6 +7,7 @@ class Calculator:
     def __init__(self):
         self.equation = ""
         self.answer = ""
+        self.history_repository = HistoryRepository()
 
     def use_numeric_buttons(self, number):
         """Yksinkertainen funktio joka palauttaa saadun numeron
@@ -75,7 +77,15 @@ class Calculator:
         return ""
 
     def evaluate(self, equation, answer):
+        """Suorittaa laskutoimituksen 
 
+        Args:
+            equation (str): Yhtälökentässä oleva merkkijono
+            answer (str): Vastauskentässä oleva numero
+
+        Returns:
+            str: Yhtälön vastauksen tai virheviestin
+        """
         self.equation = equation
         self.answer = answer
 
@@ -89,5 +99,8 @@ class Calculator:
         except Exception:
             return "Error, please reset"
 
+    def add_to_history(self, equation, answer):
+        self.history_repository.add_calculation_to_history(equation, answer)
+
     def show_history(self):
-        pass
+        self.history_repository.read_calculation_historyfile()

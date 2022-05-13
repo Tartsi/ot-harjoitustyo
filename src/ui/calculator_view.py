@@ -1,5 +1,4 @@
 from tkinter import *
-from repositories.history_repository import HistoryRepository
 from services.calculator import Calculator
 
 
@@ -44,10 +43,9 @@ class CalculatorView:
         self.create_and_place_misc_buttons()
         self.fill_button_area()
 
-        # Alustetaan sovelluslogiikasta ja laskuhistoriasta vastaavat moduulit
+        # Alustetaan sovelluslogiikasta vastaava moduuli
 
         self.calculator = Calculator()
-        self.history_repo = HistoryRepository()
 
     def create_areas(self):
         """Funktio luo laskimen "vastausalueen" ja nappialueen
@@ -148,7 +146,7 @@ class CalculatorView:
             self.update_equation_label()
             self.answer_to_equation = str(squared)
             self.update_answer_label()
-            self.history_repo.add_calculation_to_history(
+            self.calculator.add_to_history(
                 self.equation, self.answer_to_equation)
             self.equation = ""
         else:
@@ -166,7 +164,7 @@ class CalculatorView:
             self.update_equation_label()
             self.answer_to_equation = str(square_root)
             self.update_answer_label()
-            self.history_repo.add_calculation_to_history(
+            self.calculator.add_to_history(
                 self.equation.replace("\u221a", f"sqrt("), self.answer_to_equation)
             self.equation = ""
         else:
@@ -197,15 +195,14 @@ class CalculatorView:
         self.update_answer_label()
         self.equation += "="
         self.update_equation_label()
-        self.history_repo.add_calculation_to_history(
+        self.calculator.add_to_history(
             self.equation, self.answer_to_equation)
         self.equation = ""
 
-    # Sovelluslogiikkaa, siirretään myöhemmin toiseen luokkaan
-    def show_history(self):
-        """Avaa laskuhistoria näkymän
+    def press_history_button(self):
+        """Avaa laskuhistoria näkymän calculator-luokkaa hyödyntäen
         """
-        self.history_repo.read_calculation_historyfile()
+        self.calculator.show_history()
 
     def create_and_place_misc_buttons(self):
         """Luo ja sijoittaa laskimen "erityisnapit" laskimen nappialueelle
@@ -220,7 +217,7 @@ class CalculatorView:
         equals_to_button.grid(row=4, column=4, sticky=NSEW)
 
         history_button = Button(self.button_area, text="H", font=(
-            "Arial", 24, "bold"), borderwidth=0, command=self.show_history)
+            "Arial", 24, "bold"), borderwidth=0, command=self.press_history_button)
         history_button.grid(row=4, column=3, sticky=NSEW)
 
         square_button = Button(

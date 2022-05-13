@@ -58,39 +58,41 @@ class TestCalculatorView(unittest.TestCase):
         self.calculatorview.press_clear_button()
         self.assertEqual(self.calculatorview.answer_to_equation, "")
 
-    def test_calculator_equals_button(self):
+    def test_calculator_evaluate_button(self):
         self.calculatorview.press_numeric_button(1)
-        self.calculatorview.use_operator_buttons("+")
+        self.calculatorview.press_operator_button("+")
         self.calculatorview.press_numeric_button(2)
         self.calculatorview.press_evaluate_button()
         self.assertEqual(self.calculatorview.answer_to_equation, "3")
 
     def test_negative_answer_to_equation(self):
         self.calculatorview.press_numeric_button(1)
-        self.calculatorview.use_operator_buttons("-")
+        self.calculatorview.press_operator_button("-")
         self.calculatorview.press_numeric_button(2)
         self.calculatorview.press_evaluate_button()
         self.assertEqual(self.calculatorview.answer_to_equation, "-1")
 
     def test_first_number_negative(self):
         self.calculatorview.press_numeric_button(-1)
-        self.calculatorview.use_operator_buttons("+")
+        self.calculatorview.press_operator_button("+")
         self.calculatorview.press_numeric_button(2)
         self.calculatorview.press_evaluate_button()
         self.assertEqual(self.calculatorview.answer_to_equation, "1")
 
     def test_zero_div_error(self):
         self.calculatorview.press_numeric_button(1)
-        self.calculatorview.use_operator_buttons("/")
+        self.calculatorview.press_operator_button("/")
         self.calculatorview.press_numeric_button(0)
         self.calculatorview.press_evaluate_button()
-        self.assertEqual(self.calculatorview.answer_to_equation, "/0 Error")
+        self.assertEqual(self.calculatorview.answer_to_equation,
+                         "/0 Error, please reset")
 
     def test_incorrect_operator(self):
         self.calculatorview.press_numeric_button(3)
-        self.calculatorview.use_operator_buttons("*")
-        self.calculatorview.use_operator_buttons("*")
-        self.calculatorview.use_operator_buttons("*")
+        self.calculatorview.press_operator_button("*")
+        self.calculatorview.press_operator_button("*")
+        self.calculatorview.press_operator_button("*")
         self.calculatorview.press_numeric_button(2)
         self.calculatorview.press_evaluate_button()
-        self.assertEqual(self.calculatorview.answer_to_equation, "Error")
+        self.assertEqual(self.calculatorview.answer_to_equation,
+                         "Error, please reset")
