@@ -1,7 +1,5 @@
 from ui.history_view import HistoryView
 
-# Testit tulevat myöhemmin perässä
-
 
 class HistoryRepository:
 
@@ -31,7 +29,7 @@ class HistoryRepository:
            historianäkymää käsittelevälle luokalle
         """
         historylist = []
-        hist = HistoryView()
+        history_view = HistoryView()
 
         try:
             with open(self.historyfile) as file:
@@ -42,7 +40,7 @@ class HistoryRepository:
                     strippedline = line.strip()
                     historylist.append(strippedline)
 
-            hist.show_historyview(historylist)
+            history_view.show_historyview(historylist)
         except FileNotFoundError:
             print('File not found!')
         except PermissionError:

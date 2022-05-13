@@ -1,9 +1,9 @@
-from ui.ui import UI
+from ui.calculator_view import CalculatorView
 
 
 def main():
-    ui = UI()
-    ui.show_calculator()
+    calculator_view = CalculatorView()
+    calculator_view.run()
 
 
 if __name__ == '__main__':

@@ -3,6 +3,8 @@ from repositories.history_repository import HistoryRepository
 
 
 class Calculator:
+    """Laskimen sovelluslogiikasta vastaava luokka
+    """
 
     def __init__(self):
         self.equation = ""
@@ -100,7 +102,15 @@ class Calculator:
             return "Error, please reset"
 
     def add_to_history(self, equation, answer):
+        """Lisää laskinnäkymästä saadun yhtälön ja sen vastauksen historiaan
+
+        Args:
+            equation (str): Yhtälökentän merkkijono, joka sijoitetaan historiaan
+            answer (str): Yhtälön vastaus, joka sijoitetaan historiaan
+        """
         self.history_repository.add_calculation_to_history(equation, answer)
 
     def show_history(self):
+        """Avaa laskinnäkymän
+        """
         self.history_repository.read_calculation_historyfile()
