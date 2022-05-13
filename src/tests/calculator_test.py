@@ -25,3 +25,20 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(self.calculator.use_operator_buttons("-"), "-")
         self.assertEqual(self.calculator.use_operator_buttons("*"), "*")
         self.assertEqual(self.calculator.use_operator_buttons("/"), "/")
+
+    def test_squaring_function(self):
+        self.assertEqual(self.calculator.squaring_function(
+            ""), "Enter number first!")
+        self.assertEqual(self.calculator.squaring_function("8"), 64.0)
+        self.assertEqual(self.calculator.squaring_function(
+            str(99**99)), "Overflow, please reset")
+
+    def test_square_root_function(self):
+        self.assertEqual(self.calculator.square_root_function(
+            ""), "Enter number first!")
+        self.assertEqual(self.calculator.square_root_function("9"), 3.0)
+        self.assertEqual(self.calculator.square_root_function(
+            "Error"), "Error occurred, please reset")
+
+    def test_clear(self):
+        self.assertEqual(self.calculator.clear(), "")

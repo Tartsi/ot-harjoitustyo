@@ -140,7 +140,7 @@ class CalculatorView:
 
     def press_squaring_button(self):
         """Neliöinti toiminto laskimelle, näkymien päivitys tapahtuu tässä,
-        itse laskemisesta vastaa sovelluslogiikan calculator
+        itse laskemisesta vastaa sovelluslogiikan calculator-luokka
         """
         squared = self.calculator.squaring_function(self.answer_to_equation)
         if isinstance(squared, float):
@@ -153,47 +153,46 @@ class CalculatorView:
             self.equation = ""
         else:
             self.equation = squared
-            self.update_equation_label()  # TÄHÄN JÄIT!
+            self.update_equation_label()
 
-    # Sovelluslogiikkaa, siirretään myöhemmin toiseen luokkaan
-    def square_root_button_function(self):
-        """Neliöjuuri toiminto laskimelle
+    def press_square_root_button(self):
+        """Neliöjuuri toiminto laskimelle, näkymien päivitys tapahtuu tässä,
+        itse laskemisesta vastaa sovelluslogiikan calculator-luokka
         """
-        # if len(self.answer_to_equation) != 0:
-        #     self.equation = "\u221a"+self.answer_to_equation+"="
-        #     self.update_equation_label()
-        #     self.answer_to_equation = str(
-        #         eval(f"{self.answer_to_equation}**0.5"))
-        #     self.update_answer_label()
-        #     self.history_repo.add_calculation_to_history(
-        #         self.equation.replace("\u221a", f"sqrt("), self.answer_to_equation)
-        #     self.equation = ""
-        # else:
-        #     self.equation = "Enter number first!"
-        #     self.update_equation_label()
+        square_root = self.calculator.square_root_function(
+            self.answer_to_equation)
+        if isinstance(square_root, float):
+            self.equation = "\u221a"+self.answer_to_equation+"="
+            self.update_equation_label()
+            self.answer_to_equation = str(square_root)
+            self.update_answer_label()
+            self.history_repo.add_calculation_to_history(
+                self.equation.replace("\u221a", f"sqrt("), self.answer_to_equation)
+            self.equation = ""
+        else:
+            self.equation = square_root
+            self.update_equation_label()
 
-    # Sovelluslogiikkaa, siirretään myöhemmin toiseen luokkaan
-    def clear_calculator(self):
+    def press_clear_button(self):
         """Tyhjentää laskimen vastaus- ja yhtälökentät
         """
-        self.equation = ""
-        self.answer_to_equation = ""
+        self.equation = self.calculator.clear()
+        self.answer_to_equation = self.calculator.clear()
         self.update_equation_label()
         self.update_answer_label()
 
-    # Sovelluslogiikkaa, siirretään myöhemmin toiseen luokkaan
-    def evaluate_equation(self):
-        """Näyttää yhtälökentässä olevan laskun vastauksen vastauskentässä
+    def press_evaluate_button(self):
+        """Näyttää laskun vastauksen, pääosa funktiosta on näkymien päivittämistä,
+        laskeminen tapahtuu calculator-luokassa
         """
+
+        result = self.calculator.evaluate(
+            self.equation, self.answer_to_equation)
+
         self.equation += self.answer_to_equation
         self.update_equation_label()
 
-        try:
-            self.answer_to_equation = str(eval(self.equation))
-        except ZeroDivisionError as e:
-            self.answer_to_equation = "/0 Error"
-        except Exception as e:
-            self.answer_to_equation = "Error"
+        self.answer_to_equation = result
 
         self.update_answer_label()
         self.equation += "="
@@ -213,11 +212,11 @@ class CalculatorView:
            neliöintinappi, neliöjuurinappi, tyhjennysnappi ja yhtäsuuruusnappi
         """
         clear_button = Button(self.button_area, text="C", font=(
-            "Arial", 24, "bold"), borderwidth=0, command=self.clear_calculator)
+            "Arial", 24, "bold"), borderwidth=0, command=self.press_clear_button)
         clear_button.grid(row=0, column=1, sticky=NSEW)
 
         equals_to_button = Button(self.button_area, text="=", font=(
-            "Arial", 24, "bold"), borderwidth=0, command=self.evaluate_equation)
+            "Arial", 24, "bold"), borderwidth=0, command=self.press_evaluate_button)
         equals_to_button.grid(row=4, column=4, sticky=NSEW)
 
         history_button = Button(self.button_area, text="H", font=(
@@ -229,7 +228,7 @@ class CalculatorView:
         square_button.grid(row=0, column=2, sticky=NSEW)
 
         square_root_button = Button(self.button_area, text="\u221ax", font=self.operator_button_font,
-                                    borderwidth=0, command=self.square_root_button_function)
+                                    borderwidth=0, command=self.press_square_root_button)
         square_root_button.grid(row=0, column=3, sticky=NSEW)
 
     def update_equation_label(self):
@@ -241,9 +240,11 @@ class CalculatorView:
         """Päivittää laskimen vastauskenttää
         """
         if len(self.answer_to_equation) > 9:
-            self.answer_label.config(text=self.answer_to_equation[:11]+"...")
+            self.answer_label.config(
+                text=self.answer_to_equation, font=("Arial", 20, "bold"))
         else:
-            self.answer_label.config(text=self.answer_to_equation)
+            self.answer_label.config(
+                text=self.answer_to_equation, font=("Arial", 40, "bold"))
 
     def run(self):
         """Käynnistää laskimen
