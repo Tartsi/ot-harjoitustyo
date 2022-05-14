@@ -32,6 +32,7 @@ class CalculatorView:
         self.create_and_place_misc_buttons()
         self.fill_button_area()
 
+        open("calculationhistory.txt", "w").close()
         self.calculator = Calculator()
 
     def create_areas(self):

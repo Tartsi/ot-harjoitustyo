@@ -66,7 +66,7 @@ class Calculator:
             try:
                 return math.sqrt(float(current_number))
             except Exception:
-                return "Error occurred, please reset"
+                return "Error, please reset"
         else:
             return "Enter number first!"
 
@@ -88,6 +88,7 @@ class Calculator:
         Returns:
             str: Yhtälön vastauksen tai virheviestin
         """
+
         self.equation = equation
         self.answer = answer
 
@@ -95,6 +96,8 @@ class Calculator:
 
         try:
             self.answer = str(eval(self.equation))
+            if len(self.answer) >= 50:
+                self.answer = "Too many numbers!"
             return self.answer
         except ZeroDivisionError:
             return "/0 Error, please reset"

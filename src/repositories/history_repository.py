@@ -14,15 +14,16 @@ class HistoryRepository:
     def add_calculation_to_history(self, equation, answer):
         """Liitetään laskutoimitus historiaan
         """
-        try:
+
+        errors = ["Error, please reset",
+                  "Overflow, please reset", "Enter number first!",
+                  "/0 Error, please reset", "Too many numbers!"]
+
+        if equation in errors or answer in errors:
+            pass
+        else:
             with open(self.historyfile, "a") as file:
                 file.write(f"{equation}{answer}\n")
-        except FileNotFoundError:
-            print('File not found!')
-        except PermissionError:
-            print("Permission denied!")
-        except Exception as e:
-            print("Error occured:", e)
 
     def read_calculation_historyfile(self):
         """Luetaan laskinhistoria listaan ja lähetetään eteenpäin
@@ -31,19 +32,13 @@ class HistoryRepository:
         historylist = []
         history_view = HistoryView()
 
-        try:
-            with open(self.historyfile) as file:
+        with open(self.historyfile) as file:
 
-                for line in file:
+            for line in file:
 
-                    line.replace("\n", "")
-                    strippedline = line.strip()
-                    historylist.append(strippedline)
+                line.replace("\n", "")
+                strippedline = line.strip()
+                historylist.append(strippedline)
 
-            history_view.show_historyview(historylist)
-        except FileNotFoundError:
-            print('File not found!')
-        except PermissionError:
-            print("Permission denied!")
-        except Exception as e:
-            print("Error occured:", e)
+        history_view.show_historyview(historylist)
+        return historylist

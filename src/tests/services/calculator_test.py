@@ -38,7 +38,7 @@ class TestCalculator(unittest.TestCase):
             ""), "Enter number first!")
         self.assertEqual(self.calculator.square_root_function("9"), 3.0)
         self.assertEqual(self.calculator.square_root_function(
-            "Error"), "Error occurred, please reset")
+            "Error"), "Error, please reset")
 
     def test_clear(self):
         self.assertEqual(self.calculator.clear(), "")
@@ -49,3 +49,5 @@ class TestCalculator(unittest.TestCase):
             "9/", "0"), "/0 Error, please reset")
         self.assertEqual(self.calculator.evaluate(
             "/93++-", "3"), "Error, please reset")
+        self.assertEqual(self.calculator.evaluate(
+            "99**", "99"), "Too many numbers!")
