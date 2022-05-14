@@ -10,8 +10,6 @@ class CalculatorView:
     numeric_button_font = ("Helvetica", 24, "bold")
     operator_button_font = ("Arial", 20)
 
-    # Alustetaan laskin
-
     def __init__(self):
         """Konstruktori, alustaa laskinnäkymän
 
@@ -23,27 +21,16 @@ class CalculatorView:
         self.screen.geometry("400x600")
         self.screen.title("Calculator")
 
-        # Luodaan muuttujat jotka näyttävät laskimen tämänhetkisen yhtälön ja sen vastauksen
-
         self.equation = ""
         self.answer_to_equation = ""
 
-        # Luodaan muuttujat, joihin sijoitetaan laskimen "vastausalue" ja nappialue
-
         self.display_area, self.button_area = self.create_areas()
-
-        # Luodaan laskimen vastaukselle ja yhtälölle kentät joihin ne voidaan asettaa
-
         self.equation_label, self.answer_label = self.create_labels()
-
-        # Kutsutaan funktioita, jotka luovat ja sijoittavat laskimeen napit
 
         self.create_and_place_numeric_buttons()
         self.create_and_place_operator_buttons()
         self.create_and_place_misc_buttons()
         self.fill_button_area()
-
-        # Alustetaan sovelluslogiikasta vastaava moduuli
 
         self.calculator = Calculator()
 
@@ -64,7 +51,7 @@ class CalculatorView:
         """Funktio sijoittaa laskimen vastausalueelle yhtälön ja vastauksen
 
         Returns:
-            Label: Palauttaa laskimen vastausalueelle (Frame) yhtälön ja vastauksen kentät
+            Label: Palauttaa laskimen vastausalueelle yhtälön ja vastauksen kentät
         """
         equation_label = Label(self.display_area, text=self.equation,
                                bg=self.color_light_gray, anchor=E, font=("Arial", 16), padx=20)
@@ -84,7 +71,7 @@ class CalculatorView:
             self.button_area.columnconfigure(i, weight=1)
 
     def press_numeric_button(self, number):
-        """Funktio saa numeron parametriksi ja hyödyntäen laskimen
+        """Funktio saa numeron parametriksi ja hyödyntäen calculator-luokan
         palvelua lisää sen näkymään, jonka jälkeen päivittää näkymää
 
         Args:
@@ -141,6 +128,7 @@ class CalculatorView:
         itse laskemisesta vastaa sovelluslogiikan calculator-luokka
         """
         squared = self.calculator.squaring_function(self.answer_to_equation)
+
         if isinstance(squared, float):
             self.equation = self.answer_to_equation+"\u00b2"+"="
             self.update_equation_label()
@@ -159,6 +147,7 @@ class CalculatorView:
         """
         square_root = self.calculator.square_root_function(
             self.answer_to_equation)
+
         if isinstance(square_root, float):
             self.equation = "\u221a"+self.answer_to_equation+"="
             self.update_equation_label()
@@ -172,7 +161,8 @@ class CalculatorView:
             self.update_equation_label()
 
     def press_clear_button(self):
-        """Tyhjentää laskimen vastaus- ja yhtälökentät
+        """Calculator-luokka tyhjentää laskimen yhtälö- ja vastauskentän,
+        jonka jälkeen metodi päivittää näkymät
         """
         self.equation = self.calculator.clear()
         self.answer_to_equation = self.calculator.clear()
@@ -180,8 +170,8 @@ class CalculatorView:
         self.update_answer_label()
 
     def press_evaluate_button(self):
-        """Näyttää laskun vastauksen, pääosa funktiosta on näkymien päivittämistä,
-        laskeminen tapahtuu calculator-luokassa
+        """Calculator-luokka laskee yhteen laskimen yhtälö- ja vastauskentän,
+        jonka jälkeen palauttaa sen vastauskenttään ja päivittää kentät
         """
 
         result = self.calculator.evaluate(
