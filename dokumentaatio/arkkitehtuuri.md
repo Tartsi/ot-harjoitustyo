@@ -2,7 +2,7 @@
 
 ## Luokkakaavio kuvaus rakenteelle:
 
-![Luokkakaavio - Laskinsovellus](https://user-images.githubusercontent.com/62020899/166562026-baaac20a-5719-44d6-b2cb-c59e93e5b0dd.JPG)
+![Luokkakaavio - Laskinsovellus #3](https://user-images.githubusercontent.com/62020899/168492160-24f32036-95b2-461e-acc6-3c7738d04524.JPG)
 
 Kaavion ja selvityksen tarkoituksena kuvastaa lopullista sovelluksen toimintaa!
 
@@ -15,3 +15,4 @@ UI-hakemistossa sijaitsevan calculator_view-tiedoston tarkoituksena on luoda las
 HUOM! Sekvenssikaavio jää päivittämättä viikkoon 6 ja release 2 mennessä!
 
 Sovelluksen käynnistyessä kutsutaan services-hakemiston calculator-luokkaa, joka luo laskinsovelluksen ja palauttaa käyttäjälle graafisen näkymän. Tämän jälkeen käyttäjä voi mielivaltaisesti manipuloida laskinta käyttäen tätä käyttöliittymää.
+
