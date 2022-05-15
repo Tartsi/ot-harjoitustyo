@@ -23,3 +23,11 @@
 
 - Lisää toiminnallisuutti laskimeen, historian ylläpidon lisääminen ja tarkastelu nyt mahdollista
 - Testit lisätään myöhemmin
+
+## Viikko 7
+
+- Lisätty testejä
+- Korjattu tiettyjä koodin kohtia pylintiä hyödyntäen ja tehty parantavia muutoksia.
+- Siirretty toiminnallisuutta sovelluslogiikkaan
+- Eritelty koodia eri hakemistoihin ja tiedostoihin
+- Dokumentaation päivittäminen loppupalautusta varten
