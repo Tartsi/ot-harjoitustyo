@@ -1,5 +1,5 @@
 from tkinter import Tk, Frame, Label, Button, NSEW, E
-from services.calculator import Calculator
+from services.calculator_service import CalculatorService
 
 
 class CalculatorView:
@@ -32,7 +32,7 @@ class CalculatorView:
         self._create_and_place_misc_buttons()
         self._fill_button_area()
 
-        self._calculator = Calculator()
+        self._calculator = CalculatorService()
 
         # "Resetöidään" laskinhistoria jokaiselle uudelle laskinnäkymälle
 

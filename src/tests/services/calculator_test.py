@@ -1,11 +1,11 @@
 import unittest
-from services.calculator import Calculator
+from services.calculator_service import CalculatorService
 
 
 class TestCalculator(unittest.TestCase):
 
     def setUp(self):
-        self.calculator = Calculator()
+        self.calculator = CalculatorService()
 
     def test_use_numeric_buttons(self):
         self.assertEqual(self.calculator.use_numeric_buttons(0), "0")

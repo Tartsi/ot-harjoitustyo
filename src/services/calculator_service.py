@@ -2,7 +2,7 @@ import math
 from repositories.history_repository import HistoryRepository
 
 
-class Calculator:
+class CalculatorService:
     """Laskimen sovelluslogiikasta vastaava luokka
     """
 
