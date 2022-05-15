@@ -8,9 +8,6 @@ UI-hakemistossa sijaitsevan calculator_view-tiedoston tarkoituksena on luoda las
 
 ## Viikko 5 - tallennushetkellä (26.04.2022) sekvenssikaavio seuraavanlainen:
 
-![Laskinsovellus, sekvenssikaavio](https://user-images.githubusercontent.com/62020899/165349528-cbd2bb32-1ee9-4a19-81db-2fba4feafdbc.JPG)
+![Sekvenssikaavio - Laskinsovellus](https://user-images.githubusercontent.com/62020899/168492998-f82e47d5-6eb0-458f-b29b-5e7361c8ccab.JPG)
 
-HUOM! Sekvenssikaavio jää päivittämättä viikkoon 6 ja release 2 mennessä!
-
-Sovelluksen käynnistyessä kutsutaan services-hakemiston calculator-luokkaa, joka luo laskinsovelluksen ja palauttaa käyttäjälle graafisen näkymän. Tämän jälkeen käyttäjä voi mielivaltaisesti manipuloida laskinta käyttäen tätä käyttöliittymää.
-
+Sovelluksen käynnistyessä kutsutaan calculator_view-luokan run metodia, joka käynnistää käyttäjälle graafisen näkymän. Tämän jälkeen käyttäjä voi mielivaltaisesti manipuloida laskinta käyttäen tätä käyttöliittymää. Laskinnäkymä hyödyntää tämän jälkeen calculator_servicen metodeita liittyen laskutoimituksiin. Tämä luokka myös vastaa laskuhistorian päivittämisestä ja näkymän avaamisesta. Historianäkymän luomisesta vastaa history_view luokka ja tämä lopulta näyttää laskuhistoriassa olevat laskut yhtälöineen ja vastauksineen.
