@@ -8,7 +8,7 @@ Asenna vaadittavat riippuvuudet:
 poetry install
 ```
 
-2. Käynnistys:
+Käynnistys:
 
 ```bash
 poetry run invoke start
