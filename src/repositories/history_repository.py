@@ -41,4 +41,4 @@ class HistoryRepository:
                 historylist.append(strippedline)
 
         history_view.show_historyview(historylist)
-        return historylist
+        return historylist  # testausta varten

@@ -1,4 +1,4 @@
-from tkinter import *
+from tkinter import Tk, Frame, Label, Button
 
 
 class HistoryView:
@@ -7,7 +7,7 @@ class HistoryView:
         """Alustetaan ikkuna historianäkymälle
         """
         self.root = Tk()
-        self.root.title("History")
+        self.root.title("Calculation History")
         self.root.geometry("425x700")
         self.root.resizable(0, 0)
         self.button_frame = self.create_button_frame()
@@ -34,15 +34,12 @@ class HistoryView:
         temporary_history_frame.pack()
         return temporary_history_frame
 
-    def refresh_history_button(self):
-        """Toiminnon tarkoituksena päivittää laskinhistoria suoraan historianäkymästä
-        """
-        pass  # TODO
-
     def clear_action(self):
-        """Toiminto tyhjentää laskinhistorian
+        """Toiminto tyhjentää laskinhistorian ja avaa ikkunan uudestaan
         """
         open("calculationhistory.txt", "w").close()
+        self.root.update()
+        self.root.update_idletasks()
 
     def clear_history_button(self):
         """Luo napin laskinhistorian tyhjennykselle
@@ -68,6 +65,6 @@ class HistoryView:
             message.grid()
 
     def run(self):
-        """Käynnistää laskinnäkymän
+        """Käynnistää historianäkymän
         """
         self.root.mainloop()

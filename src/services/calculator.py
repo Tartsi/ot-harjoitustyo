@@ -79,7 +79,7 @@ class Calculator:
         return ""
 
     def evaluate(self, equation, answer):
-        """Suorittaa laskutoimituksen 
+        """Suorittaa laskutoimituksen
 
         Args:
             equation (str): Yhtälökentässä oleva merkkijono

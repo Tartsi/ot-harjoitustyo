@@ -1,4 +1,4 @@
-from tkinter import *
+from tkinter import Tk, Frame, Label, Button, NSEW, E
 from services.calculator import Calculator
 
 
@@ -32,8 +32,11 @@ class CalculatorView:
         self.create_and_place_misc_buttons()
         self.fill_button_area()
 
-        open("calculationhistory.txt", "w").close()
         self.calculator = Calculator()
+
+        # "Resetöidään" laskinhistoria jokaiselle uudelle laskinnäkymälle
+
+        open("calculationhistory.txt", "w").close()
 
     def create_areas(self):
         """Funktio luo laskimen "vastausalueen" ja nappialueen
@@ -55,9 +58,11 @@ class CalculatorView:
             Label: Palauttaa laskimen vastausalueelle yhtälön ja vastauksen kentät
         """
         equation_label = Label(self.display_area, text=self.equation,
-                               bg=self.color_light_gray, anchor=E, font=("Arial", 16), padx=20)
+                               bg=self.color_light_gray, anchor=E,
+                               font=("Arial", 16), padx=20)
         answer_label = Label(self.display_area, text=self.answer_to_equation,
-                             bg=self.color_light_gray, anchor=E, font=("Arial", 40, "bold"), padx=20)
+                             bg=self.color_light_gray, anchor=E,
+                             font=("Arial", 40, "bold"), padx=20)
         equation_label.pack(expand=True, fill="both")
         answer_label.pack(expand=True, fill="both")
         return equation_label, answer_label
@@ -93,9 +98,13 @@ class CalculatorView:
         }
 
         for button, area in buttons_dictionary.items():
-            b = Button(self.button_area, text=str(button), font=self.numeric_button_font,
-                       borderwidth=0, command=lambda temp_button=button: self.press_numeric_button(temp_button))
-            b.grid(row=area[0], column=area[1], sticky=NSEW)
+            button_in_dictionary = Button(self.button_area, text=str(button),
+                                          font=self.numeric_button_font,
+                                          borderwidth=0,
+                                          command=lambda
+                                          temp_button=button:
+                                              self.press_numeric_button(temp_button))
+            button_in_dictionary.grid(row=area[0], column=area[1], sticky=NSEW)
 
     def press_operator_button(self, operator):
         """Toiminto käyttämään laskimen operaattorinappeja, suurin osa funktiosta on
@@ -119,9 +128,11 @@ class CalculatorView:
         i = 0
 
         for operator in operators:
-            b = Button(self.button_area, text=operator, font=self.operator_button_font, borderwidth=0,
-                       command=lambda temp_button=operator: self.press_operator_button(temp_button))
-            b.grid(row=i, column=4, sticky=NSEW)
+            button_in_list = Button(self.button_area, text=operator,
+                                    font=self.operator_button_font, borderwidth=0,
+                                    command=lambda temp_button=operator:
+                                    self.press_operator_button(temp_button))
+            button_in_list.grid(row=i, column=4, sticky=NSEW)
             i += 1
 
     def press_squaring_button(self):
@@ -212,10 +223,12 @@ class CalculatorView:
         history_button.grid(row=4, column=3, sticky=NSEW)
 
         square_button = Button(
-            self.button_area, text="x\u00b2", font=self.operator_button_font, borderwidth=0, command=self.press_squaring_button)
+            self.button_area, text="x\u00b2", font=self.operator_button_font,
+            borderwidth=0, command=self.press_squaring_button)
         square_button.grid(row=0, column=2, sticky=NSEW)
 
-        square_root_button = Button(self.button_area, text="\u221ax", font=self.operator_button_font,
+        square_root_button = Button(self.button_area, text="\u221ax",
+                                    font=self.operator_button_font,
                                     borderwidth=0, command=self.press_square_root_button)
         square_root_button.grid(row=0, column=3, sticky=NSEW)
 

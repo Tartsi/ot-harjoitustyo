@@ -25,6 +25,13 @@ class TestHistoryRepository(unittest.TestCase):
             len(self.history_repository.read_calculation_historyfile()), 3)
 
     def test_adding_unacceptable_inputs(self):
-        self.history_repository.add_calculation_to_history("1/", "0")
-        self.history_repository.add_calculation_to_history("2+", "2")
-        self.history_repository.add_calculation_to_history("99**99", "3")
+        self.history_repository.add_calculation_to_history(
+            "1/0", "/0 Error, please reset")
+        self.history_repository.add_calculation_to_history(
+            "2+-/5", "Error, please reset")
+        self.history_repository.add_calculation_to_history(
+            "99**99**99", "Too many numbers!")
+        self.history_repository.add_calculation_to_history(
+            "1000**1000", "Overflow, please reset")
+        self.assertEqual(
+            len(self.history_repository.read_calculation_historyfile()), 0)
