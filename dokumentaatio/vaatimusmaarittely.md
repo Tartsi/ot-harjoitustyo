@@ -6,16 +6,16 @@ Sovelluksen avulla pystytään suorittamaan erilaisia matemaattisia laskuja graa
 
 ## Käyttäjät
 
-Normaali käyttäjä ainoastaan, todennäköisesti ei tule tarvetta lisätä suuremman käyttöoikeuden rooleja
+Normaali käyttäjä ainoastaan
 
-## Toiminnallisuutta
+## Lopullinen toiminnallisuus
 
-- Pystyy suorittamaan yksinkertaisia (+, -, * ja /) laskutoimituksia (tehty 18.04) ja tarkoituksena myöhemmin myös mahdollistaa osa funktiolaskimen toiminnallisuuksista (ainakin osittain suoritettu 25.04 - neliöjuuri ja neliöinti laskut)
+- Pystyy suorittamaan luvun neliöinnin, hakemaan luvun neliöjuuren sekä suorittamaan plus-, miinus-, kerto- ja jakolaskuja graafista käyttöliittymää käyttäen.
 
-- Sovellus pystyy pitämään kirjaa jossain muodossa suoritetuista laskutoimituksista ja saaduista tuloksista (Toteutettu alustavasti 03.05)
+- Käyttäjä voi halutessaan nähdä oman laskuhistoriansa.
 
-## Jatkokehitys
+## Jatkokehitysideoita kurssin jälkeen
 
-- Tarkoituksena mahdollistaa monimutkaisemmatkin laskutoimitukset ja laajentaa graafista käyttöliittymää
+- Monimutkaisemmatkin laskutoimitukset ja laajentaa graafista käyttöliittymää 
 
 - Laskuhistorian ylläpidon visuaalinen parantaminen
