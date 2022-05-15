@@ -38,11 +38,12 @@ class HistoryView:
         return temporary_history_frame
 
     def _clear_action(self):
-        """Toiminto tyhjentää laskinhistorian ja avaa ikkunan uudestaan
+        """Toiminto tyhjentää laskinhistorian
         """
         open("calculationhistory.txt", "w").close()
-        self._root.update()
-        self._root.update_idletasks()
+        info = Label(self._history_frame,
+                     text="Reopen window to see changes")
+        info.grid()
 
     def _clear_history_button(self):
         """Luo napin laskinhistorian tyhjennykselle
